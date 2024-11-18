@@ -38,6 +38,11 @@ function App() {
     const deletePost = Number(e.target.getAttribute("data-index"));
     console.log(deletePost);
 
+    // remove the task
+    const newPost = posts.filter((post, index) => index != deletePost);
+    console.log(newPost);
+
+
   };
 
 
@@ -85,7 +90,6 @@ function App() {
               </svg>
             </button>
           </li>)}
-
         </ul>
       </div>
 
