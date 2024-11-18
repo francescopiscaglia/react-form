@@ -2,16 +2,6 @@ import { useState } from 'react'
 import './App.css'
 import allPosts from "./db/db.js"
 
-/*
-
-Esercizio
-Creare un semplice form con un campo input per il titolo di un articolo del blog. Al submit del form, mostrare la lista degli articoli inseriti, con la possibilità di cancellare ciascun articolo utilizzando un'icona.
-
-BONUS
-Implementare la funzionalità di modifica del titolo di un post.
-Aggiungere più campi al form (ad es. lo stato di un articolo - draft, published - o l’autore)
-
-*/
 
 function App() {
 
@@ -24,11 +14,6 @@ function App() {
     e.preventDefault();
 
     // aggiorno la UI in modo reattivo
-    if (!newPost) {
-      alert("Please insert a title");
-      return
-    };
-
     setPosts([
       newPost,
       ...posts
@@ -49,9 +34,8 @@ function App() {
     const newPost = posts.filter((post, index) => index != deletePost);
 
     // update the UI
-    setPosts(newPost)
+    setPosts(newPost);
   };
-
 
 
   // render
@@ -100,9 +84,6 @@ function App() {
           </li>)}
         </ul>
       </div>
-
-
-
     </>
   );
 };
