@@ -1,6 +1,6 @@
 export default [
-    "primo post",
-    "secondo post",
-    "terzo post",
-    "quarto post",
+    "Primo post",
+    "Secondo post",
+    "Terzo post",
+    "Quarto post",
 ];
