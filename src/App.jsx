@@ -15,6 +15,21 @@ Aggiungere più campi al form (ad es. lo stato di un articolo - draft, published
 
 function App() {
 
+  // logic
+  const [posts, setPosts] = useState(allPosts);
+  const [newPost, setNewPost] = useState("");
+
+  // funzione per aggiungere un nuvvo titolo
+  function addPost(e) {
+    e.preventDefault();
+
+    // aggiorno la UI in modo reattivo
+    setPosts([
+      newPost,
+      ...posts
+    ]);
+  };
+
   // render
   return (
     <>
@@ -22,7 +37,7 @@ function App() {
         <h1>Form</h1>
 
         {/* new post form */}
-        <form >
+        <form onSubmit={addPost}>
           <div className="mb-3">
             <label htmlFor="postTitle" className="form-label">Add a post</label>
             <input
@@ -30,6 +45,8 @@ function App() {
               className="form-control"
               id="postTitle"
               aria-describedby="emailHelp"
+              value={newPost}
+              onChange={e => setNewPost(e.target.value)}
             />
             <small id="emailHelp" className="form-text">Add post title</small>
           </div>
@@ -41,7 +58,7 @@ function App() {
         {/* post title list */}
         <ul className='list-group mt-4'>
 
-          {allPosts.map((post, index) => <li key={index} className='list-group-item d-flex justify-content-between align-items-center'>
+          {posts.map((post, index) => <li key={index} className='list-group-item d-flex justify-content-between align-items-center'>
             {post}
 
             {/* delete a post */}
